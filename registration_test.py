@@ -1,6 +1,7 @@
 import os
 import unittest
 import time
+import xmlrunner
 from tools.webservice import WebService
 from selenium import webdriver
 from ddt import ddt, data, unpack
@@ -135,8 +136,8 @@ class Registration(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    print("main")
-    scenario = unittest.TestLoader().loadTestsFromTestCase(Registration)
-    suite = unittest.TestSuite([scenario])
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    # scenario = unittest.TestLoader().loadTestsFromTestCase(Registration)
+    # suite = unittest.TestSuite([scenario])
+    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
+    # unittest.TextTestRunner(verbosity=2).run(suite)
     # unittest.main()
