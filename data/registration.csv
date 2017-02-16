@@ -1,4 +1,5 @@
 name,surname,phone,role,subject,unique_code,country,norg,norgs,web,physical_address,inn,activity,law_address,email,password,additional,file1,file2,categories
+Учасник физ,Учасник физ лицо,+380677659038,Buyer,4,1234567890,,Учасник физ лицо,Учасник физ лицо,http://www.it.ua,Киев,1234567890,чето делаем,Киев юр.адресс,test_org_com4@it.ua,12345678,test description,,,A1-A2-A3-A4;A1;A1-A2;A1-A2-A3
 Учасник физ лицо,Учасник физ лицо,+380677659038,Buyer,1,1234567890,,Учасник физ лицо,Учасник физ лицо,http://www.it.ua,Киев,1234567890,чето делаем,Киев юр.адресс,test_org_com4@it.ua,12345678,test description,,,A1-A2-A3-A4;A1;A1-A2;A1-A2-A3
 Учасник юрлицо,Учасник юрлицо,+380677659038,Buyer,2,12345678,,Учасник юрлицо,Учасник юрлицо,http://www.it.ua,Киев,1234567890,чето делаем,Киев юр.адресс,test_org_com5@it.ua,12345678,test description,,,A1-A2-A3-A4;A1;A1-A2;A1-A2-A3
 Учасник нерезидент,Учасник нерезидент,+380677659038,Buyer,3,12345678,US-DOS,Учасник нерезидент,Учасник нерезидент,http://www.it.ua,Киев,1234567890,чето делаем,Киев юр.адресс,test_org_com6@it.ua,12345678,test description,,,A1-A2-A3-A4;A1;A1-A2;A1-A2-A3
