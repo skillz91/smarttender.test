@@ -13,7 +13,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 class Registration(unittest.TestCase):
         @classmethod
         def setUpClass(cls):
-            cls.driver = core.driver.get_driver()
+            cls.driver = core.driver.Driver.get_driver()
 
         def setUp(self):
             self.driver.get("http://test.smarttender.biz/registration?testMode=1")
