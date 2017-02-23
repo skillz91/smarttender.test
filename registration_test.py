@@ -1,21 +1,29 @@
 import os
 import unittest
 import time
-from tools.HTMLTestRunner import HTMLTestRunner
+import sys
 from tools.webservice import WebService
 from selenium import webdriver
 from ddt import ddt, data, unpack
 from tools.get_data import get_csv_data
 from selenium.webdriver.support.select import Select
-
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 @ddt
 class Registration(unittest.TestCase):
         @classmethod
         def setUpClass(cls):
-            dir = os.path.dirname(__file__)
-            print(dir)
-            cls.driver = webdriver.Chrome("c:\\smarttender.test\\chromedriver.exe")
+            browser = os.getenv("browser", "")
+            print("SELECTED BROSER" + browser)
+            if browser == "chrome":
+                cls.driver = webdriver.Chrome("c:\\smarttender.test\\chromedriver.exe")
+            elif browser == "firefox":
+                binary = FirefoxBinary("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe")
+                cls.driver = webdriver.Firefox(firefox_binary=binary)
+            elif browser == "ie":
+                cls.driver = webdriver.Ie("c:\\smarttender.test\\IEDriverServer.exe")
+            #dir = os.path.dirname(__file__)
+            #cls.driver = webdriver.Chrome("c:\\smarttender.test\\chromedriver.exe")
             cls.driver.implicitly_wait(30)
             cls.driver.maximize_window()
 
@@ -151,14 +159,4 @@ if __name__ == '__main__':
     # suite = unittest.TestSuite([scenario])
     # unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
     # unittest.TextTestRunner(verbosity=2).run(suite)
-    # unittest.main()
-    scenario = unittest.TestLoader().loadTestsFromTestCase(Registration)
-    suite = unittest.TestSuite([scenario])
-    dateTimeStamp = time.strftime('%Y%m%d_%H_%M_%S')
-    buf = open("TestReport" + "_" + dateTimeStamp + ".html", 'wb')
-    runner = HTMLTestRunner.HTMLTestRunner(
-        stream=buf,
-        title='Test the Report',  # Заголовок отчета
-        description='Result of tests'  # Описание отчета
-    )
-    runner.run(suite)
+    unittest.main()
