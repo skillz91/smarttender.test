@@ -1,7 +1,7 @@
 import os
 import unittest
 import time
-import sys
+import core
 from tools.webservice import WebService
 from selenium import webdriver
 from ddt import ddt, data, unpack
@@ -13,19 +13,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 class Registration(unittest.TestCase):
         @classmethod
         def setUpClass(cls):
-            browser = os.getenv("browser", "")
-            print("SELECTED BROSER" + browser)
-            if browser == "chrome":
-                cls.driver = webdriver.Chrome("c:\\smarttender.test\\chromedriver.exe")
-            elif browser == "firefox":
-                binary = FirefoxBinary("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe")
-                cls.driver = webdriver.Firefox(firefox_binary=binary)
-            elif browser == "ie":
-                cls.driver = webdriver.Ie("c:\\smarttender.test\\IEDriverServer.exe")
-            #dir = os.path.dirname(__file__)
-            #cls.driver = webdriver.Chrome("c:\\smarttender.test\\chromedriver.exe")
-            cls.driver.implicitly_wait(30)
-            cls.driver.maximize_window()
+            cls.driver = core.driver.get_driver()
 
         def setUp(self):
             self.driver.get("http://test.smarttender.biz/registration?testMode=1")
