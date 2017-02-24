@@ -18,8 +18,10 @@ class NonAnonymousCase(unittest.TestCase):
         time.sleep(0.2)
         logins = self.driver.find_elements_by_class_name("login-tb")
         logins[1].send_keys(login)
+        time.sleep(1)
         passwords = self.driver.find_elements_by_class_name("password-tb")
         passwords[1].send_keys(password)
+        time.sleep(1)
         btns = self.driver.find_elements_by_id("LoginBlock_LogInBtn")
         btns[1].click()
 
