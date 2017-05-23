@@ -16,7 +16,8 @@ class Registration(unittest.TestCase):
             cls.driver = core.driver.Driver.get_driver()
 
         def setUp(self):
-            self.driver.get("http://test.smarttender.biz/registration?testMode=1")
+            url = os.getenv("testUrl", "http://test.smarttender.biz")
+            self.driver.get(url + "/registration?testMode=1")
 
         @data(*get_csv_data('./data/registration.csv'))
         @unpack
